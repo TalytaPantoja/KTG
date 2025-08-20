@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - KTG Consultoria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página de serviços */
+        .service-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-section:last-child {
+            border-bottom: none;
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .service-icon-large {
+            font-size: 3rem;
+            margin-right: 1.5rem;
+            color: var(--accent-primary);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .service-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .service-title p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+        
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .service-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .service-features {
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+        
+        .feature-icon {
+            color: var(--accent-primary);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        
+        .feature-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-dark);
+        }
+        
+        .feature-text p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tech-box {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium));
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/tech-pattern.svg') no-repeat center;
+            background-size: cover;
+            opacity: 0.2;
+        }
+        
+        .tech-box-content {
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        .tech-box-content i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+        }
+        
+        .tech-box-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-box-content p {
+            opacity: 0.9;
+        }
+        
+        .cta-service {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .service-content {
+                flex-direction: column;
+            }
+            
+            .service-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-icon-large {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>KTG</h1>
+                <p>Consultoria em Tecnologia</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="servicos.html" class="active">Serviços</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="mobile-menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Nossos Serviços</h1>
+            <p>Soluções tecnológicas personalizadas para impulsionar seu negócio</p>
+        </div>
+    </section>
+
+    <section id="automacao" class="service-section">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon-large">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="service-title">
+                    <h2>Automação de Tarefas</h2>
+                    <p>Otimize processos e reduza custos com nossas soluções de automação personalizadas</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <div class="service-text">
+                    <p>A automação de tarefas é uma solução poderosa para empresas que desejam otimizar processos, reduzir erros humanos e aumentar a produtividade. Na KTG, desenvolvemos soluções personalizadas que automatizam tarefas repetitivas, permitindo que sua equipe foque em atividades estratégicas.</p>
+                    
+                    <p>Nossas soluções de automação são desenvolvidas com base nas necessidades específicas do seu negócio, garantindo resultados eficientes e mensuráveis.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Automação de Processos Administrativos</h4>
+                                <p>Automatize tarefas como geração de relatórios, processamento de dados e gestão de documentos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Integração de Sistemas</h4>
+                                <p>Conecte diferentes sistemas e plataformas para um fluxo de dados contínuo e eficiente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Automação de Fluxos de Trabalho</h4>
+                                <p>Crie fluxos de trabalho automatizados que reduzem o tempo de execução e minimizam erros.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-service">
+                        <a href="contato.html" class="btn btn-primary">Solicitar Consultoria</a>
+                    </div>
+                </div>
+                
+                <div class="service-image">
+                    <div class="tech-box">
+                        <div class="tech-box-content">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Automação Inteligente</h3>
+                            <p>Transforme processos manuais em fluxos automatizados e eficientes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="excel" class="service-section">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon-large">
+                    <i class="fas fa-table"></i>
+                </div>
+                <div class="service-title">
+                    <h2>Treinamento em Excel</h2>
+                    <p>Capacite sua equipe com treinamentos especializados em Excel e aumente a produtividade</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <div class="service-image">
+                    <div class="tech-box">
+                        <div class="tech-box-content">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Excel Avançado</h3>
+                            <p>Domine as ferramentas e recursos avançados do Excel para análise de dados eficiente</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text">
+                    <p>O Excel é uma ferramenta essencial para empresas de todos os portes, mas muitas vezes seu potencial não é totalmente explorado. Nossos treinamentos em Excel são desenvolvidos para capacitar sua equipe a utilizar recursos avançados, aumentando a eficiência e a qualidade das análises de dados.</p>
+                    
+                    <p>Oferecemos treinamentos personalizados, adaptados ao nível de conhecimento da sua equipe e às necessidades específicas do seu negócio.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Fórmulas e Funções Avançadas</h4>
+                                <p>Aprenda a utilizar fórmulas complexas e funções avançadas para análise de dados eficiente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Automação com VBA</h4>
+                                <p>Desenvolva macros e automatize tarefas repetitivas com Visual Basic for Applications.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Dashboards e Visualização de Dados</h4>
+                                <p>Crie painéis interativos e visualizações de dados impactantes para tomada de decisões.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-service">
+                        <a href="contato.html" class="btn btn-primary">Solicitar Treinamento</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="web" class="service-section">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon-large">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="service-title">
+                    <h2>Desenvolvimento Web</h2>
+                    <p>Sites modernos e funcionais com APIs integradas para impulsionar seu negócio</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <div class="service-text">
+                    <p>Um site moderno e funcional é essencial para empresas que desejam se destacar no mercado digital. Na KTG, desenvolvemos sites personalizados, com design atraente e funcionalidades avançadas, incluindo integração com APIs para automatizar processos e melhorar a experiência do usuário.</p>
+                    
+                    <p>Nossos projetos são desenvolvidos com foco em usabilidade, performance e resultados, garantindo que seu site seja uma ferramenta eficiente para o crescimento do seu negócio.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Sites Responsivos</h4>
+                                <p>Desenvolvimento de sites adaptados para todos os dispositivos, garantindo uma experiência consistente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Integração com APIs</h4>
+                                <p>Conecte seu site a sistemas externos, automatizando processos e melhorando a eficiência.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>E-commerce e Sistemas Web</h4>
+                                <p>Desenvolvimento de lojas virtuais e sistemas web personalizados para seu negócio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-service">
+                        <a href="contato.html" class="btn btn-primary">Solicitar Orçamento</a>
+                    </div>
+                </div>
+                
+                <div class="service-image">
+                    <div class="tech-box">
+                        <div class="tech-box-content">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>Web Development</h3>
+                            <p>Sites modernos e funcionais com tecnologias de ponta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chatbot" class="service-section">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon-large">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <div class="service-title">
+                    <h2>Chatbots Inteligentes</h2>
+                    <p>Automatize o atendimento ao cliente com chatbots personalizados e eficientes</p>
+                </div>
+            </div>
+            
+            <div class="service-content">
+                <div class="service-image">
+                    <div class="tech-box">
+                        <div class="tech-box-content">
+                            <i class="fas fa-robot"></i>
+                            <h3>Chatbots Personalizados</h3>
+                            <p>Atendimento automatizado e inteligente para melhorar a experiência do cliente</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text">
+                    <p>Os chatbots são uma solução eficiente para automatizar o atendimento ao cliente, reduzir custos operacionais e melhorar a experiência do usuário. Desenvolvemos chatbots personalizados, adaptados às necessidades específicas do seu negócio, capazes de responder perguntas frequentes, realizar tarefas simples e direcionar clientes para o atendimento humano quando necessário.</p>
+                    
+                    <p>Nossos chatbots são desenvolvidos com tecnologias avançadas, garantindo respostas precisas e uma experiência natural para seus clientes.</p>
+                    
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Atendimento 24/7</h4>
+                                <p>Ofereça suporte aos seus clientes a qualquer hora do dia, sem custos adicionais.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Integração com Sistemas</h4>
+                                <p>Conecte seu chatbot a sistemas existentes para acesso a informações em tempo real.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Análise de Conversas</h4>
+                                <p>Obtenha insights valiosos sobre as interações dos clientes para melhorar seus serviços.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-service">
+                        <a href="contato.html" class="btn btn-primary">Solicitar Demonstração</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Pronto para transformar sua empresa?</h2>
+            <p>Entre em contato conosco para uma consultoria gratuita e descubra como podemos ajudar seu negócio.</p>
+            <a href="contato.html" class="btn btn-primary">Solicitar Consultoria</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>KTG</h2>
+                    <p>Consultoria em Tecnologia</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Nossos Serviços</h3>
+                    <ul>
+                        <li><a href="servicos.html#automacao">Automação de Tarefas</a></li>
+                        <li><a href="servicos.html#excel">Treinamento em Excel</a></li>
+                        <li><a href="servicos.html#web">Desenvolvimento Web</a></li>
+                        <li><a href="servicos.html#chatbot">Chatbots Inteligentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@ktg.com.br</li>
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                    <div class="social-media">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 KTG Consultoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

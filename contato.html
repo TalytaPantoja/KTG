@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - KTG Consultoria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página de contato */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium));
+            color: var(--text-light);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/tech-pattern.svg') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .contact-section {
+            padding: 5rem 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            text-align: right;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium));
+            color: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/tech-pattern.svg') no-repeat;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .info-card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .info-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-primary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                order: -1;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>KTG</h1>
+                <p>Consultoria em Tecnologia</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+                <div class="mobile-menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Entre em Contato</h1>
+            <p>Estamos prontos para ajudar sua empresa a alcançar o próximo nível com nossas soluções tecnológicas</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h2 class="section-title">Envie sua Mensagem</h2>
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" name="company" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse</label>
+                            <select id="service" name="service" class="form-control">
+                                <option value="">Selecione um serviço</option>
+                                <option value="automacao">Automação de Tarefas</option>
+                                <option value="excel">Treinamento em Excel</option>
+                                <option value="web">Desenvolvimento Web</option>
+                                <option value="chatbot">Chatbots Inteligentes</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <h3>Informações de Contato</h3>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>E-mail</h4>
+                                    <p>contato@ktg.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Telefone</h4>
+                                    <p>(11) 9999-9999</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Endereço</h4>
+                                    <p>Av. Paulista, 1000 - Bela Vista<br>São Paulo - SP, 01310-100</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Horário de Atendimento</h4>
+                                    <p>Segunda a Sexta: 9h às 18h</p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0976951624853!2d-46.65390548502264!3d-23.564611284682373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7f481fd9f%3A0x9982bfde4df54830!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1623252345678!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como funciona o processo de consultoria?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nosso processo de consultoria começa com uma reunião inicial para entender as necessidades do seu negócio. Em seguida, realizamos uma análise detalhada dos processos atuais e desenvolvemos uma proposta personalizada com soluções específicas para sua empresa.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quanto tempo leva para implementar uma solução de automação?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O tempo de implementação varia de acordo com a complexidade do projeto. Soluções simples podem ser implementadas em algumas semanas, enquanto projetos mais complexos podem levar alguns meses. Durante a fase de planejamento, fornecemos um cronograma detalhado com prazos específicos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês oferecem suporte após a implementação?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos suporte contínuo após a implementação. Nossos pacotes de suporte incluem manutenção, atualizações e assistência técnica para garantir que sua solução continue funcionando perfeitamente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como os treinamentos em Excel são realizados?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nossos treinamentos em Excel podem ser realizados presencialmente ou online, de acordo com sua preferência. Oferecemos treinamentos personalizados, adaptados ao nível de conhecimento da sua equipe e às necessidades específicas do seu negócio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>KTG</h2>
+                    <p>Consultoria em Tecnologia</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Nossos Serviços</h3>
+                    <ul>
+                        <li><a href="servicos.html#automacao">Automação de Tarefas</a></li>
+                        <li><a href="servicos.html#excel">Treinamento em Excel</a></li>
+                        <li><a href="servicos.html#web">Desenvolvimento Web</a></li>
+                        <li><a href="servicos.html#chatbot">Chatbots Inteligentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@ktg.com.br</li>
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                    <div class="social-media">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 KTG Consultoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Script específico para a página de contato
+        document.addEventListener('DOMContentLoaded', function() {
+            // Validação do formulário
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Aqui você pode adicionar validações adicionais
+                    
+                    // Simulação de envio do formulário
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Enviando...';
+                    
+                    // Simulação de tempo de processamento
+                    setTimeout(function() {
+                        // Exibir mensagem de sucesso
+                        const formGroups = contactForm.querySelectorAll('.form-group');
+                        const formSubmit = contactForm.querySelector('.form-submit');
+                        
+                        // Limpar formulário
+                        formGroups.forEach(group => {
+                            group.style.display = 'none';
+                        });
+                        
+                        // Criar mensagem de sucesso
+                        const successMessage = document.createElement('div');
+                        successMessage.className = 'success-message';
+                        successMessage.innerHTML = `
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Mensagem Enviada com Sucesso!</h3>
+                            <p>Obrigado por entrar em contato conosco. Nossa equipe responderá em breve.</p>
+                            <button class="btn btn-primary" id="resetForm">Enviar Nova Mensagem</button>
+                        `;
+                        
+                        // Adicionar estilos para a mensagem de sucesso
+                        const style = document.createElement('style');
+                        style.textContent = `
+                            .success-message {
+                                text-align: center;
+                                padding: 2rem 0;
+                            }
+                            
+                            .success-icon {
+                                font-size: 4rem;
+                                color: var(--success);
+                                margin-bottom: 1.5rem;
+                            }
+                            
+                            .success-message h3 {
+                                font-size: 1.8rem;
+                                margin-bottom: 1rem;
+                                color: var(--primary-dark);
+                            }
+                            
+                            .success-message p {
+                                margin-bottom: 2rem;
+                                color: var(--text-dark);
+                                opacity: 0.8;
+                            }
+                        `;
+                        
+                        document.head.appendChild(style);
+                        
+                        // Substituir o formulário pela mensagem de sucesso
+                        formSubmit.style.display = 'none';
+                        contactForm.appendChild(successMessage);
+                        
+                        // Adicionar evento para resetar o formulário
+                        document.getElementById('resetForm').addEventListener('click', function() {
+                            contactForm.reset();
+                            
+                            // Restaurar formulário
+                            formGroups.forEach(group => {
+                                group.style.display = 'block';
+                            });
+                            
+                            formSubmit.style.display = 'block';
+                            successMessage.remove();
+                            
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText;
+                        });
+                    }, 2000);
+                });
+            }
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            if (faqItems.length > 0) {
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = item.querySelector('.faq-icon i');
+                    
+                    // Inicialmente, ocultar todas as respostas
+                    answer.style.display = 'none';
+                    
+                    question.addEventListener('click', function() {
+                        // Verificar se este item está aberto
+                        const isOpen = answer.style.display === 'block';
+                        
+                        // Fechar todos os itens
+                        faqItems.forEach(faqItem => {
+                            const faqAnswer = faqItem.querySelector('.faq-answer');
+                            const faqIcon = faqItem.querySelector('.faq-icon i');
+                            
+                            faqAnswer.style.display = 'none';
+                            faqIcon.className = 'fas fa-plus';
+                        });
+                        
+                        // Se o item clicado estava fechado, abri-lo
+                        if (!isOpen) {
+                            answer.style.display = 'block';
+                            icon.className = 'fas fa-minus';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+    <style>
+        /* Estilos adicionais para a seção de FAQ */
+        .faq-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(0, 0, 0, 0.01);
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        
+        .faq-icon {
+            color: var(--accent-primary);
+            font-size: 1rem;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+    </style>
+</body>
+</html>
